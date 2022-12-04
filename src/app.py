@@ -1,6 +1,6 @@
 import os
 from os import getenv
-from flask import Flask, render_template, request, redirect, flash, url_for
+from flask import Flask, after_this_request, send_file, request, redirect, flash, url_for
 from werkzeug.utils import secure_filename
 from gt_converter import create_list, draw_dxf
 app = Flask(__name__)
@@ -32,8 +32,17 @@ def upload_file():
             to_convert = "uploads/" + filename
             data_list = create_list(to_convert)
             draw_dxf(to_convert, data_list)
-
-            return redirect(url_for('upload_file', name=filename))
+            to_download = to_convert + "_export.dxf"
+            print(to_download)
+            @after_this_request
+            def remove_file(response):
+                try:
+                    os.remove(to_download)
+                    os.remove(to_convert)
+                except Exception as error:
+                    app.logger.error("Error removing or closing downloaded file handle", error)
+                return response
+            return return_file(to_download)
     return '''
     <!doctype html>
     <title>Upload new File</title>
@@ -43,3 +52,6 @@ def upload_file():
       <input type=submit value=Upload>
     </form>
     '''
+
+def return_file(to_download):
+    return send_file(to_download)
