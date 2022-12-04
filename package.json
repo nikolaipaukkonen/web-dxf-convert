@@ -1,0 +1,23 @@
+
+{
+    "name": "web-dxf-convert",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.py",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/nikolaipaukkonen/web-dxf-convert.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/nikolaipaukkonen/web-dxf-convert/issues"
+    },
+    "homepage": "https://github.com/nikolaipaukkonen/web-dxf-convert#readme",
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }
