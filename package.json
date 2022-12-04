@@ -3,7 +3,7 @@
     "name": "web-dxf-convert",
     "version": "1.0.0",
     "description": "",
-    "main": "app.py",
+    "main": "src/app.py",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"
     },
