@@ -4,7 +4,7 @@ authors:
   - family-names: Paukkonen
     given-names: Nikolai
     orcid: https://orcid.org/0000-0002-4072-9379
-title: "My Research Software"
+title: "Web DXF Convert"
 version: 1.0.0
 date-released: 2022-12-04
 url: https://github.com/nikolaipaukkonen/web-dxf-convert 
